@@ -1,10 +1,10 @@
 package com.example.mycollections.models;
 
-public class Movie extends LibraryItem {
+public class Movies extends LibraryItem {
     private String director;
     private int runtime;
 
-    public Movie(String name, String director, int year, int runtime ) {
+    public Movies(String name, String director, int year, int runtime ) {
         super(name, year);
         this.director = director;
         this.runtime = runtime;
@@ -28,6 +28,7 @@ public class Movie extends LibraryItem {
 
     @Override
     public String toString() {
-        return "The movie " + name + "directed by " + director + " is " +  runtime + " minutes long.";
+        return "The movie " + getName() + " directed by " + director
+                + " is " + runtime + " minutes long.";
     }
 }

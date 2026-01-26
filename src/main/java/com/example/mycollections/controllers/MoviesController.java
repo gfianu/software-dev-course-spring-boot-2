@@ -1,31 +1,31 @@
 package com.example.mycollections.controllers;
 
-import com.example.mycollections.models.Movie;
+import com.example.mycollections.models.Movies;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/movie")
+@RequestMapping("/movies")
 
 public class MoviesController {
 
-    private final List<Movie> movies = new ArrayList<>() {{
-        add(new Movie("Fight Club", "David Fincher", 1999, 139));
-        add(new Movie("The Godfather", "Francis Ford Coppola", 1972, 175));
-        add(new Movie("Interstellar", "Christopher Nolan", 2014, 169));
+    private final List<Movies> movies = new ArrayList<>() {{
+        add(new Movies("Fight Club", "David Fincher", 1999, 139));
+        add(new Movies("The Godfather", "Francis Ford Coppola", 1972, 175));
+        add(new Movies("Interstellar", "Christopher Nolan", 2014, 169));
     }};
 
     @GetMapping("/json")
-    public List<Movie> getMoviesJson() {
+    public List<Movies> getMoviesJson() {
         return movies;
     }
 
     @GetMapping("/html")
     public String getMoviesHtml() {
         String movieList = "<ul>";
-        for (Movie movie : movies) {
+        for (Movies movie : movies) {
             movieList += "<li>" + movie + "</li>";
         }
         movieList += "</ul>";
